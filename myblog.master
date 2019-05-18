@@ -42,7 +42,7 @@
                             <div class="login-search-area d-flex align-items-center">
                                 <!-- Login -->
                                 <div class="login d-flex">
-                                    <a href="#">Login</a>
+                                    <a href="Admin/login.aspx">Admin Login</a>
                                     <a href="#">Register</a>
                                 </div>
                                 <!-- Search Form -->
@@ -130,7 +130,7 @@
                                                 <li><a href="catagories-post.html">Catagories</a></li>
                                                 <li><a href="single-post.html">Single Articles</a></li>
                                                 <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="Admin/login.aspx">Admin Login</a></li>
                                             </ul>
                                             <div class="single-mega cn-col-4">
                                                 <!-- Single Featured Post -->
