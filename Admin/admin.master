@@ -46,6 +46,7 @@
 </head>
 
 <body class="animsition">
+    <form id="form1" runat="server">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
@@ -179,10 +180,10 @@
                                 <i class="fas fa-tachometer-alt"></i>Post</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="PostDetail.aspx">Add Post</a>
+                                    <a href="Post.aspx">Add Post</a>
                                 </li>
                                 <li>
-                                    <a href="#">View Posts</a>
+                                    <a href="ViewPost.aspx">View Posts</a>
                                 </li>
                             </ul>
                         </li>
@@ -276,12 +277,12 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <form class="form-header" runat="server">
+                           <%-- <form class="form-header" runat="server">--%>
                                 <%--    <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>--%>
-                            </form>
+                            <%--</form>--%>
                             <div class="header-button">
                                 <%-- <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
@@ -503,6 +504,7 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+</form>
 
 </body>
 

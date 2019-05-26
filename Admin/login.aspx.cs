@@ -19,7 +19,7 @@ public partial class Admin_login : System.Web.UI.Page
     {
         if(txtusername.Text=="admin" && txtpassword.Text=="admin123")
         {
-            Response.Redirect("~/Admin/welcomeAdmin.aspx");
+            Response.Redirect("~/Admin/Post.aspx");
         }
     }
 
