@@ -86,12 +86,58 @@
             imageUploadParams: {
                 id: 'my_editor'
             },
-            height: 350,
+            height: 350,           
+
+            videoUploadURL: '/Admin/UploadVideo.aspx',
+
+            videoUploadParams: {
+                id: 'my_editor'
+            },
+            events: {
+                'video.beforeUpload': function (videos) {
+                    // Return false if you want to stop the video upload.
+                },
+                'video.uploaded': function (response) {
+                    // Video was uploaded to the server.
+                },
+                'video.inserted': function ($img, response) {
+                    // Video was inserted in the editor.
+                },
+                'video.replaced': function ($img, response) {
+                    // Video was replaced in the editor.
+                },
+                'video.error': function (error, response) {
+                    // Bad link.
+                    if (error.code == 1) {
+                        alert('error1');
+                    }
+
+                    // No link in upload response.
+                    else if (error.code == 2) { alert('error2');}
+
+                    // Error during video upload.
+                    else if (error.code == 3) { alert('error3'); }
+
+                    // Parsing response failed.
+                    else if (error.code == 4) { alert('error4'); }
+
+                    // Video too text-large.
+                    else if (error.code == 5) { alert('error5'); }
+
+                    // Invalid video type.
+                    else if (error.code == 6) { alert('error6'); }
+
+                    // Video can be uploaded only to same domain in IE 8 and IE 9.
+                    else if (error.code == 7) { alert('error7'); }
+
+                    // Response contains the original server response to the request if available.
+                }
+            }
         });
 
         $(document).ready(function () {
             $("#logo").hide();
-            editor.html.set('<p><img src="/files/8c7e821c.jpg" style="width: 300px;" class="fr-fic fr-dib">My custom paragraph.</p>');
+            //editor.html.set('<p><img src="/files/8c7e821c.jpg" style="width: 300px;" class="fr-fic fr-dib">My custom paragraph.</p>');
         })
 
 
