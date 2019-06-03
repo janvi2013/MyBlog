@@ -29,6 +29,7 @@ public partial class Admin_Default : System.Web.UI.Page
             objMyBlogprp.p_Title = Request.Form["text-title"];
             objMyBlogprp.p_ShortDescription = Request.Form["text-title"];
             objMyBlogprp.p_Description = Request.Form["textarea-input"];
+            objMyBlogprp.p_ThumbnailImage = Request.Form["textarea-thumbnail"];
             objMyBlogprp.p_Meta = allnull;
             objMyBlogprp.p_UrlSlug = allnull;
             objMyBlogprp.p_Published = true;

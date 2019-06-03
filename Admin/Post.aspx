@@ -27,6 +27,14 @@
                             <input type="text" id="text-input" name="text-title" placeholder="Text" class="form-control"/>
                         </div>
                     </div>
+                 <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="textarea-input" class=" form-control-label">Post Thumbnail Image</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <textarea name="textarea-thumbnail" id="ThumbnailArea" placeholder="Image..."></textarea>
+                        </div>
+                    </div>
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="textarea-input" class=" form-control-label">Post Content</label>
@@ -144,6 +152,16 @@
                     // Response contains the original server response to the request if available.
                 }
             }
+        });
+
+        var editor = new FroalaEditor('#ThumbnailArea', {
+            // Set the image upload URL.
+            imageUploadURL: '/Admin/Upload.aspx',
+
+            imageUploadParams: {
+                id: 'my_editor'
+            },
+            height: 150          
         });
 
         $(document).ready(function () {

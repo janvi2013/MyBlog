@@ -65,7 +65,7 @@ namespace nsMyBlogs
     }
     public class clsBlogSystemprp : intBlogSystem
     {
-        String Author, Title, ShortDecription, Description, Meta, UrlSlug, Category;
+        String Author, Title, ShortDecription, Description, Meta, UrlSlug, Category,ThumbnailImage;
         DateTime Postedon, Modified;
         Boolean Published;
         public string p_Author
@@ -189,6 +189,18 @@ namespace nsMyBlogs
             }
         }
 
+        public String p_ThumbnailImage
+        {
+            get
+            {
+                return ThumbnailImage;
+            }
+
+            set
+            {
+                ThumbnailImage = value;
+            }
+        }
     }
     public abstract class clscon
     {
@@ -222,6 +234,7 @@ namespace nsMyBlogs
                 cmd.Parameters.Add("@postedon", SqlDbType.DateTime).Value = p.p_PostedDate;
                 cmd.Parameters.Add("@modified", SqlDbType.DateTime).Value = p.p_ModifiedDate;
                 cmd.Parameters.Add("@category", SqlDbType.NVarChar).Value = p.p_Category;
+                cmd.Parameters.Add("@thumbnailimage", SqlDbType.NVarChar).Value = p.p_ThumbnailImage;
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
