@@ -61,14 +61,15 @@
                             <label for="TagsField" class=" form-control-label">Tags</label>
                         </div>
                         <div class="col col-md-9">
-                            <select name="Tags" id="TagsField" multiple="" class="form-control">
-                                <option value="1">ASP.NET</option>
+                            <select name="Tags" id="TagsField" multiple="multiple" class="form-control" onchange="SetTagValues();">
+                               <%-- <option value="1">ASP.NET</option>
                                 <option value="2">MVC</option>
                                 <option value="3">Azure</option>
                                 <option value="4">Angular</option>
-                                <option value="5">C#</option>
+                                <option value="5">C#</option>--%>
                             </select>
                         </div>
+                        <input type="hidden" id="TagsHidden" name="TagValues" runat="server" />
                     </div>
 
                     <div class="row form-group">
@@ -164,9 +165,26 @@
             height: 150          
         });
 
+        function SetTagValues() {
+            $("#ContentPlaceHolder1_TagsHidden").val(JSON.stringify($("#TagsField").val()).replace('[', '').replace(']', '').replace(/"/g, ''));
+        }
+
         $(document).ready(function () {
-
-
+            var tagsDropDown = $("#TagsField");
+            $.ajax({
+                type: "POST",
+                url: "Post.aspx/GetTags",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data.d, function () {
+                        tagsDropDown.append($("<option></option>").val(this['Id']).html(this['Name']));
+                    });
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
            
             $("#ContentPlaceHolder1_btnSavePost").click(function () {
                 debugger;

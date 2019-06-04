@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using nsMyBlogs;
+using System.Web.Services;
 
 public partial class Admin_Default : System.Web.UI.Page
 {
@@ -30,6 +31,7 @@ public partial class Admin_Default : System.Web.UI.Page
             objMyBlogprp.p_ShortDescription = Request.Form["text-title"];
             objMyBlogprp.p_Description = Request.Form["textarea-input"];
             objMyBlogprp.p_ThumbnailImage = Request.Form["textarea-thumbnail"];
+            objMyBlogprp.p_TagValues = Request.Form["ctl00$ContentPlaceHolder1$TagsHidden"];
             objMyBlogprp.p_Meta = allnull;
             objMyBlogprp.p_UrlSlug = allnull;
             objMyBlogprp.p_Published = true;
@@ -45,5 +47,19 @@ public partial class Admin_Default : System.Web.UI.Page
             
         }
 
+    }
+    [WebMethod]
+    public static List<clsTagprp> GetTags()
+    {
+        try
+        {
+            clsTags objTag = new clsTags();
+            return objTag.GetTags();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 }
