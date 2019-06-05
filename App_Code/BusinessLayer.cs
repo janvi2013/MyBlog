@@ -175,7 +175,7 @@ namespace nsMyBlogs
             {
                 Published = value;
             }
-        }
+        }       
         public string p_Category
         {
             get
@@ -207,14 +207,16 @@ namespace nsMyBlogs
             get;
             set;
         }
-    }
 
+    }
 
     public class clsTagprp
     {
         public int Id { get; set; }
         public string Name { get; set; }
     }
+
+
     public abstract class clscon
     {
         protected SqlConnection con = new SqlConnection();
@@ -225,14 +227,14 @@ namespace nsMyBlogs
     }
 
     public class clsMyBlogs : clscon
+    { 
+    public void saveBlogSystem(clsBlogSystemprp p)
     {
-        public void saveBlogSystem(clsBlogSystemprp p)
-        {
-            if (con.State == ConnectionState.Closed)
+        if(con.State==ConnectionState.Closed)
             {
                 con.Open();
             }
-            try
+        try
             {
                 SqlCommand cmd = new SqlCommand("sp_SaveBlogsforMyBlogs", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -248,22 +250,91 @@ namespace nsMyBlogs
                 cmd.Parameters.Add("@modified", SqlDbType.DateTime).Value = p.p_ModifiedDate;
                 cmd.Parameters.Add("@category", SqlDbType.NVarChar).Value = p.p_Category;
                 cmd.Parameters.Add("@thumbnailimage", SqlDbType.NVarChar).Value = p.p_ThumbnailImage;
-                cmd.Parameters.Add("@TagIds", SqlDbType.NVarChar).Value = p.p_TagValues;
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
             }
-            catch (Exception ex)
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+    }
+
+    public DataSet BindTagsddl()
+        {
+            if(con.State==ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            try
+            {
+                SqlDataAdapter adp = new SqlDataAdapter("sp_getTagsforMyBlogs", con);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                return ds;
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }
         }
 
+
+        public DataTable GetNewPost()
+        {
+            if(con.State==ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand("sp_GetNewPost", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
+
+        }
+
+
+        public DataTable GetOldPost()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand("sp_GetOldPost", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
+
+        }
+
+        public DataTable  GetMaxId()
+        {
+            if(con.State==ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand("sp_GetMaxIdforMyBogs", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
+
+        }
+
+
+       
+
     }
+
 
     public class clsTags : clscon
     {
-        public  List<clsTagprp> GetTags()
+        public List<clsTagprp> GetTags()
         {
             DataSet ds = new DataSet();
             SqlDataAdapter adapter;
@@ -279,11 +350,11 @@ namespace nsMyBlogs
                 cmd.Connection = con;
                 adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(ds);
-                for(int i=0;i < ds.Tables[0].Rows.Count;i++)
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     clsTagprp tagobj = new clsTagprp();
                     tagobj.Id = Convert.ToInt32(ds.Tables[0].Rows[i].ItemArray.GetValue(0));
-                    tagobj.Name =Convert.ToString(ds.Tables[0].Rows[i].ItemArray.GetValue(1));
+                    tagobj.Name = Convert.ToString(ds.Tables[0].Rows[i].ItemArray.GetValue(1));
                     ListToReturn.Add(tagobj);
                 }
                 return ListToReturn;

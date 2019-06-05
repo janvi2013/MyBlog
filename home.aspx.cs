@@ -6,42 +6,55 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Script.Serialization;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 
 public partial class _Default : System.Web.UI.Page
 {
+    nsMyBlogs.clsMyBlogs obj = new nsMyBlogs.clsMyBlogs();
+    nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+       
     }
     [WebMethod]
     public static List<clsBlogSystemprp> GetNewPosts()
     {
+        nsMyBlogs.clsMyBlogs obj = new nsMyBlogs.clsMyBlogs();
+        //nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
+       
         try
         {
+            DataTable dt = obj.GetNewPost();           
             List<clsBlogSystemprp> ListToReturn = new List<clsBlogSystemprp>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
 
-            clsBlogSystemprp obj1 = new clsBlogSystemprp();
-            obj1.p_Category = "News";
-            obj1.p_Title = "CBSE 12th Results 2019";
-            ListToReturn.Add(obj1);
-
-            clsBlogSystemprp obj2 = new clsBlogSystemprp();
-            obj2.p_Category = "Business";
-            obj2.p_Title = "SpiceJet examines taking over widebody Jet Airways ";
-            ListToReturn.Add(obj2);
-
-            clsBlogSystemprp obj3 = new clsBlogSystemprp();
-            obj3.p_Category = "Technology";
-            obj3.p_Title = "Microsoft announcement for .NET Core";
-            ListToReturn.Add(obj3);
-
-            clsBlogSystemprp obj4 = new clsBlogSystemprp();
-            obj4.p_Category = "Sports";
-            obj4.p_Title = "ICC Cricket World Cup";
-            ListToReturn.Add(obj4);
+                nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
+                objprp.p_Author = dt.Rows[i]["Author"].ToString();
+                objprp.p_Title = dt.Rows[i]["Title"].ToString();
+                objprp.p_ShortDescription = dt.Rows[i]["ShortDescription"].ToString();
+                objprp.p_Description = dt.Rows[i]["Description"].ToString();
+                objprp.p_PostedDate = Convert.ToDateTime(dt.Rows[i]["PostedOn"]);
+                objprp.p_ModifiedDate = Convert.ToDateTime(dt.Rows[i]["Modified"]);
+                objprp.p_Category = dt.Rows[i]["Category"].ToString();
+                objprp.p_ThumbnailImage = dt.Rows[i]["Thumbnailimage"].ToString();
+                ListToReturn.Add(objprp);
+            }
 
             return ListToReturn;
-        
+
+           
+
+
+
+            
+
+
+
         }
         catch (Exception)
         {
@@ -54,41 +67,36 @@ public partial class _Default : System.Web.UI.Page
     [WebMethod]
     public static List<clsBlogSystemprp> GetOldPosts()
     {
+        nsMyBlogs.clsMyBlogs obj = new nsMyBlogs.clsMyBlogs();
+        //nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
+
         try
         {
+            DataTable dt = obj.GetOldPost();
             List<clsBlogSystemprp> ListToReturn = new List<clsBlogSystemprp>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
 
-            clsBlogSystemprp obj1 = new clsBlogSystemprp();
-            obj1.p_Category = "News";
-            obj1.p_Title = "Election Results 2019 Analysis";
-            ListToReturn.Add(obj1);
-
-            clsBlogSystemprp obj2 = new clsBlogSystemprp();
-            obj2.p_Category = "Business";
-            obj2.p_Title = "Reliance acquires Toy store Hamleys";
-            ListToReturn.Add(obj2);
-
-            clsBlogSystemprp obj3 = new clsBlogSystemprp();
-            obj3.p_Category = "Technology";
-            obj3.p_Title = "AI/IOT advancements";
-            ListToReturn.Add(obj3);
-
-            clsBlogSystemprp obj4 = new clsBlogSystemprp();
-            obj4.p_Category = "Sports";
-            obj4.p_Title = "IPL Finals Clash";
-            ListToReturn.Add(obj4);
-
-            clsBlogSystemprp obj5 = new clsBlogSystemprp();
-            obj5.p_Category = "Health";
-            obj5.p_Title = "New Research for Cancer Vaccinations";
-            ListToReturn.Add(obj3);
-
-            clsBlogSystemprp obj6 = new clsBlogSystemprp();
-            obj6.p_Category = "Travel";
-            obj6.p_Title = "10 Best Travel Destinations in India";
-            ListToReturn.Add(obj4);
+                nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
+                objprp.p_Author = dt.Rows[i]["Author"].ToString();
+                objprp.p_Title = dt.Rows[i]["Title"].ToString();
+                objprp.p_ShortDescription = dt.Rows[i]["ShortDescription"].ToString();
+                objprp.p_Description = dt.Rows[i]["Description"].ToString();
+                objprp.p_PostedDate = Convert.ToDateTime(dt.Rows[i]["PostedOn"]);
+                objprp.p_ModifiedDate = Convert.ToDateTime(dt.Rows[i]["Modified"]);
+                objprp.p_Category = dt.Rows[i]["Category"].ToString();
+                ListToReturn.Add(objprp);
+            }
 
             return ListToReturn;
+
+
+
+
+
+
+
+
 
         }
         catch (Exception)
@@ -96,5 +104,6 @@ public partial class _Default : System.Web.UI.Page
 
             throw;
         }
+
     }
 }

@@ -179,7 +179,7 @@
                 $.each(response.d, function () {
                     $("#NewPostDiv").append($("<div/>").addClass("col-12").addClass("col-md-6").append($("<div/>")
                    .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html('<img src="Admin/images/bg-title-02.jpg" alt="">').attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
+                   .html(this.p_ThumbnailImage).attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
                 })
             },
             failure: function (response) {
@@ -195,7 +195,7 @@
                 $.each(response.d, function () {
                     $("#OldPostsDiv").append($("<div/>")
                    .addClass("single-blog-post").addClass("small-featured-post").addClass("d-flex").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html('<img src="img/bg-img/24.jpg" alt="">').attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<div/>").addClass("post-meta").append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
+                   .html('<img src="Files/90e0596d.jpg" alt="">').attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<div/>").addClass("post-meta").append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
                 })
             },
             failure: function (response) {
