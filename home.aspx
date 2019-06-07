@@ -167,11 +167,13 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function () {           
+        $(document).ready(function () {
+
+
 
         });
-        $.ajax({
-            url: 'home.aspx/GetNewPosts',
+        $.ajax({           
+            url: 'home.aspx/GetNewPosts',            
             type: "POST",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -179,7 +181,9 @@
                 $.each(response.d, function () {
                     $("#NewPostDiv").append($("<div/>").addClass("col-12").addClass("col-md-6").append($("<div/>")
                    .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html(this.p_ThumbnailImage).attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
+                   .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id="+this.p_Id+""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
+
+                    
                 })
             },
             failure: function (response) {

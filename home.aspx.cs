@@ -23,7 +23,7 @@ public partial class _Default : System.Web.UI.Page
     [WebMethod]
     public static List<clsBlogSystemprp> GetNewPosts()
     {
-        nsMyBlogs.clsMyBlogs obj = new nsMyBlogs.clsMyBlogs();
+       nsMyBlogs.clsMyBlogs obj = new nsMyBlogs.clsMyBlogs();
         //nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
        
         try
@@ -34,6 +34,7 @@ public partial class _Default : System.Web.UI.Page
             {
 
                 nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
+                objprp.p_Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                 objprp.p_Author = dt.Rows[i]["Author"].ToString();
                 objprp.p_Title = dt.Rows[i]["Title"].ToString();
                 objprp.p_ShortDescription = dt.Rows[i]["ShortDescription"].ToString();
@@ -78,6 +79,8 @@ public partial class _Default : System.Web.UI.Page
             {
 
                 nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
+
+                
                 objprp.p_Author = dt.Rows[i]["Author"].ToString();
                 objprp.p_Title = dt.Rows[i]["Title"].ToString();
                 objprp.p_ShortDescription = dt.Rows[i]["ShortDescription"].ToString();
@@ -89,14 +92,7 @@ public partial class _Default : System.Web.UI.Page
             }
 
             return ListToReturn;
-
-
-
-
-
-
-
-
+            
 
         }
         catch (Exception)

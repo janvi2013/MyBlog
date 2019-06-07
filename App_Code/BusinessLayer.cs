@@ -10,6 +10,13 @@ namespace nsMyBlogs
 {
     public interface intBlogSystem
     {
+
+        Int32 p_Id
+        {
+            get;
+            set;
+        }
+
         String p_Author
         {
             get;
@@ -63,11 +70,52 @@ namespace nsMyBlogs
             set;
         }
     }
+    public interface intBlogDetails
+    {
+        Int32 p_BlogDetailId
+        {
+            get;
+            set;
+        }
+    }
+
+
+    public   class  clsBlogDetailsprp : intBlogDetails
+    {
+        Int32 BlogDetailId;
+
+        public int p_BlogDetailId
+        {
+           
+            get
+            {
+                return BlogDetailId;
+            }
+
+            set
+            {
+                BlogDetailId = value;
+            }
+        }
+    }
     public class clsBlogSystemprp : intBlogSystem
     {
         String Author, Title, ShortDecription, Description, Meta, UrlSlug, Category, ThumbnailImage;
+        Int32 Id;
         DateTime Postedon, Modified;
         Boolean Published;
+
+        public Int32 p_Id
+        {
+            get
+            {
+                return Id;
+            }
+            set
+            {
+                Id = value;
+            }
+        }
         public string p_Author
         {
             get
@@ -324,6 +372,21 @@ namespace nsMyBlogs
             adp.Fill(dt);
             return dt;
 
+        }
+
+        public DataTable GetBlogDetails(clsBlogDetailsprp p)
+        {
+            if(con.State==ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand("sp_getBlogDetails_ForMyBlog", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = p.p_BlogDetailId;
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
         }
 
 
