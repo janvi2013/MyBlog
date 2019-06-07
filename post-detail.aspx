@@ -59,7 +59,7 @@
                                
                                 <div id="PostDetais" class="row"></div>
 
-                                <asp:HiddenField ID="Hidden_PostId" runat="server" />
+                                <input type="hidden" id="Hidden_PostId" runat="server" />
                                
 
                             </div>
@@ -346,15 +346,15 @@
 
         });
         $.ajax({
-            url: 'post-detail.aspx/GetPostDetails',
+            url: 'post-detail.aspx/GetPostDetails?Id=' + $("#ContentPlaceHolder1_Hidden_PostId").val(),
             type: "POST",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (response) {
                 $.each(response.d, function () {
-                    $("#PostDetais").append($("<div/>").addClass("col-12 col-lg-8").addClass("col-12 col-lg-8").append($("<div/>")
+                    $("#PostDetais").append($("<div/>").addClass("col-12 col-lg-12").addClass("col-12 col-lg-12").append($("<div/>")
                    .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html(this.p_ThumbnailImage).attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Description + "</h6>")))));
+                   .html($($.parseHTML(this.p_ThumbnailImage)).find('img').removeAttr('style')[0]).attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Description + "</h6>")))));
                 })
             },
             failure: function (response) {

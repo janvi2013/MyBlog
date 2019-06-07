@@ -92,7 +92,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li class="active"><a href="Home.aspx">Home</a></li>
                                     <li><a href="#">Politics</a></li>
                                     <li><a href="#">Business</a></li>
                                     <li><a href="#">Technology</a></li>

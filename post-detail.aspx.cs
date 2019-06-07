@@ -39,7 +39,7 @@ public partial class _Default : System.Web.UI.Page
             // DataTable dt = obj.GetNewPost();
             SqlCommand cmd = new SqlCommand("sp_getBlogDetails_ForMyBlog", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@id", SqlDbType.Int).Value =64;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(HttpContext.Current.Request.QueryString["Id"]);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
