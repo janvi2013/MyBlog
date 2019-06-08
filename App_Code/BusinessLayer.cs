@@ -104,6 +104,7 @@ namespace nsMyBlogs
         Int32 Id;
         DateTime Postedon, Modified;
         Boolean Published;
+        String PostedDays;
 
         public Int32 p_Id
         {
@@ -254,6 +255,19 @@ namespace nsMyBlogs
         {
             get;
             set;
+        }
+
+        public String p_PostedDays
+        {
+            get
+            {
+                return PostedDays;
+            }
+
+            set
+            {
+                PostedDays = value;
+            }
         }
 
     }
