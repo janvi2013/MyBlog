@@ -67,13 +67,9 @@
                         </div>
 
                         <!-- About Author -->
-                        <div class="blog-post-author d-flex">
-                            <div class="author-thumbnail">
-                                <img src="img/bg-img/32.jpg" alt="">
-                            </div>
+                        <div class="blog-post-author d-flex">                            
                             <div class="author-info">
-                                <a href="#" class="author-name">James Smith, <span>The Author</span></a>
-                                <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
+                                <a href="#" class="author-name">Posted : James Smith, <span>Today</span></a>                                
                             </div>
                         </div>
 
@@ -347,14 +343,14 @@
         });
         $.ajax({
             url: 'post-detail.aspx/GetPostDetails?Id=' + $("#ContentPlaceHolder1_Hidden_PostId").val(),
-            type: "POST",
+            type: "GET",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (response) {
                 $.each(response.d, function () {
                     $("#PostDetais").append($("<div/>").addClass("col-12 col-lg-12").addClass("col-12 col-lg-12").append($("<div/>")
                    .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html($($.parseHTML(this.p_ThumbnailImage)).find('img').removeAttr('style')[0]).attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Description + "</h6>")))));
+                   .html($($.parseHTML(this.p_ThumbnailImage)).find('img').removeAttr('style')[0]).attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Description + "</h6>")).append($("<div/>").addClass("post-meta").append($("<p/>").addClass("post-author").text('By ').append($("<a/>").attr('href', '#').text(this.p_Author + ',' + this.p_PostedDays)))))));
                 })
             },
             failure: function (response) {

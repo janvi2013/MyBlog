@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using nsMyBlogs;
 using System.Web.Services;
+using System.Web.Script.Services;
 
 
 
@@ -22,6 +23,7 @@ public partial class _Default : System.Web.UI.Page
     }
 
     [WebMethod]
+    [ScriptMethod(UseHttpGet = true)]
     public static List<clsBlogSystemprp> GetPostDetails()
     {
         nsMyBlogs.clsMyBlogs obj = new nsMyBlogs.clsMyBlogs();
@@ -56,6 +58,7 @@ public partial class _Default : System.Web.UI.Page
                 objprp.p_ModifiedDate = Convert.ToDateTime(dt.Rows[i]["Modified"]);
                 objprp.p_Category = dt.Rows[i]["Category"].ToString();
                 objprp.p_ThumbnailImage = dt.Rows[i]["Thumbnailimage"].ToString();
+                objprp.p_PostedDays = dt.Rows[i]["PostedDays"].ToString();
                 ListToReturn.Add(objprp);
             }
 
