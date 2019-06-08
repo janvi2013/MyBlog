@@ -174,14 +174,15 @@
         });
         $.ajax({           
             url: 'home.aspx/GetNewPosts',            
-            type: "POST",
+            type: "GET",
             dataType: "json",
-            contentType: "application/json; charset=utf-8",
+            async:false,
+            contentType: "application/json; charset=utf-8",            
             success: function (response) {
                 $.each(response.d, function () {
                     $("#NewPostDiv").append($("<div/>").addClass("col-12").addClass("col-md-6").append($("<div/>")
                    .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id="+this.p_Id+""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
+                   .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id="+this.p_Id+""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")).append($("<p/>").addClass("post-author").text('By ').append($("<a/>").attr('href', '#').text(this.p_Author + ',' + this.p_PostedDays))))));
 
                     
                 })
@@ -192,14 +193,15 @@
         });
         $.ajax({
             url: 'home.aspx/GetOldPosts',
-            type: "POST",
+            type: "GET",
+            async: false,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (response) {
                 $.each(response.d, function () {
                     $("#OldPostsDiv").append($("<div/>")
                    .addClass("single-blog-post").addClass("small-featured-post").addClass("d-flex").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html('<img src="Files/90e0596d.jpg" alt="">').attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<div/>").addClass("post-meta").append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")))));
+                   .html('<img src="Files/90e0596d.jpg" alt="">').attr('href', '#'))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<div/>").addClass("post-meta").append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>").append($("<p/>").addClass("post-date").append($("<a/>").attr('href', '#').text(this.p_PostedDays)))))));
                 })
             },
             failure: function (response) {
