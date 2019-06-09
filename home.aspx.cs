@@ -84,7 +84,7 @@ public partial class _Default : System.Web.UI.Page
 
                 nsMyBlogs.clsBlogSystemprp objprp = new clsBlogSystemprp();
 
-                
+                objprp.p_Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                 objprp.p_Author = dt.Rows[i]["Author"].ToString();
                 objprp.p_Title = dt.Rows[i]["Title"].ToString();
                 objprp.p_ShortDescription = dt.Rows[i]["ShortDescription"].ToString();
@@ -93,6 +93,7 @@ public partial class _Default : System.Web.UI.Page
                 objprp.p_ModifiedDate = Convert.ToDateTime(dt.Rows[i]["Modified"]);
                 objprp.p_Category = dt.Rows[i]["Category"].ToString();
                 objprp.p_PostedDays = dt.Rows[i]["PostedDays"].ToString();
+                objprp.p_ThumbnailImage = dt.Rows[i]["Thumbnailimage"].ToString();
                 ListToReturn.Add(objprp);
             }
 
