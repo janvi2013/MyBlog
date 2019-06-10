@@ -9,8 +9,15 @@
                         <h6>New Trending Posts</h6>
                     </div>
 
-                    <div id="NewPostDiv" class="row">                      
+                    <div id="NewPostDiv" class="row" style="text-align:justify">   
+                      
+                    <%--  <div id="SharePostDiv"  class="addthis_inline_share_toolbox"  data-url="https://www.abc.com/" 
+                       data-title="केरल पहुंचे पीएम नरेंद्र मोदी, गुरुवायुर मंदिर में करेंगे पूजा" data-description="तिरुवनंतपुरम, एएनआइ।  प्रधानमंत्री नरेंद्र मोदी देर शाम केरल पहुंच गए हैं।" data-media=""></div>          
+                    --%>
+                        
+
                     </div>
+                    <div id="newdiv"></div>
                 </div>
 
                 <div class="col-12 col-lg-4">
@@ -55,10 +62,10 @@
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
                                             <a href="#" class="post-like">
-                                                <img src="img/core-img/like.png" alt="">
+                                                <img src="img/core-img/like.png" alt=""/>
                                                 <span>392</span></a>
                                             <a href="#" class="post-comment">
-                                                <img src="img/core-img/chat.png" alt="">
+                                                <img src="img/core-img/chat.png" alt=""/>
                                                 <span>10</span></a>
                                         </div>
                                     </div>
@@ -180,11 +187,16 @@
             contentType: "application/json; charset=utf-8",            
             success: function (response) {
                 $.each(response.d, function () {
+                    var txt = "hello";
+                   
                     $("#NewPostDiv").append($("<div/>").addClass("col-12").addClass("col-md-6").append($("<div/>")
                    .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id="+this.p_Id+""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>")).append($("<p/>").addClass("post-author").text('By ').append($("<a/>").attr('href', '#').text(this.p_Author + ',' + this.p_PostedDays))))));
+                   .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id=" + this.p_Id + ""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>").attr('href', "post-detail.aspx?id=" + this.p_Id + "")).append($("<p/>").addClass("post-author").text('By ').append($("<a/>")
+                   .attr('href', '#').text(this.p_Author + ',' + this.p_PostedDays).append("<br/>").append("<div class='addthis_inline_share_toolbox' data-url='http://expert.techmasternow.com/home.aspx/' data-title='" + this.p_Title + "' data-description='" + this.p_Description + "'  ></div>"))))));
 
                     
+                    
+
                 })
             },
             failure: function (response) {
@@ -201,7 +213,7 @@
                 $.each(response.d, function () {
                     $("#OldPostsDiv").append($("<div/>")
                    .addClass("single-blog-post").addClass("small-featured-post").addClass("d-flex").append($("<div/>").addClass("post-thumb").append($("<a/>")
-                   .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id=" + this.p_Id + ""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<div/>").addClass("post-meta").append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>").append($("<p/>").addClass("post-date").append($("<a/>").attr('href', '#').text(this.p_PostedDays)))))));
+                   .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id=" + this.p_Id + ""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<div/>").addClass("post-meta").append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>").attr('href', "post-detail.aspx?id=" + this.p_Id + "").append($("<p/>").addClass("post-date").append($("<a/>").attr('href', '#').text(this.p_PostedDays)))))));
                 })
             },
             failure: function (response) {
