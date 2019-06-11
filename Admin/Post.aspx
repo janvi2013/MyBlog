@@ -53,6 +53,7 @@
                                 <option value="1">News</option>
                                 <option value="2">Technology</option>
                                 <option value="3">Sports</option>
+                                <option value="4">Travel</option>
                             </select>
                         </div>
                     </div>

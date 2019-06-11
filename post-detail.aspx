@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    
+
 
 
 
@@ -17,78 +17,21 @@
                             <div class="post-thumb">
 
                                 <div id="PostDetais" class="row"></div>
-                                
+
                                 <input type="hidden" id="Hidden_PostId" runat="server" />
 
 
                             </div>
 
                         </div>
-                        
-                        <div class="section-heading">
-                            <h6>Related</h6>
-                        </div>
-
-                        <div class="row">
-                            <!-- Single Post -->
-                            <div class="col-12 col-md-6">
-                                <div class="single-blog-post style-3 mb-80">
-                                    <div class="post-thumb">
-                                        <a href="#">
-                                            <img src="img/bg-img/12.jpg" alt=""></a>
-                                    </div>
-                                    <div class="post-data">
-                                        <a href="#" class="post-catagory">Finance</a>
-                                        <a href="#" class="post-title">
-                                            <h6>Dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placer. Sed varius leo ac...</h6>
-                                        </a>
-                                        <div class="post-meta d-flex align-items-center">
-                                            <a href="#" class="post-like">
-                                                <img src="img/core-img/like.png" alt="">
-                                                <span>392</span></a>
-                                            <a href="#" class="post-comment">
-                                                <img src="img/core-img/chat.png" alt="">
-                                                <span>10</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Post -->
-                            <div class="col-12 col-md-6">
-                                <div class="single-blog-post style-3 mb-80">
-                                    <div class="post-thumb">
-                                        <a href="#">
-                                            <img src="img/bg-img/13.jpg" alt=""></a>
-                                    </div>
-                                    <div class="post-data">
-                                        <a href="#" class="post-catagory">Finance</a>
-                                        <a href="#" class="post-title">
-                                            <h6>Dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placer. Sed varius leo ac...</h6>
-                                        </a>
-                                        <div class="post-meta d-flex align-items-center">
-                                            <a href="#" class="post-like">
-                                                <img src="img/core-img/like.png" alt="">
-                                                <span>392</span></a>
-                                            <a href="#" class="post-comment">
-                                                <img src="img/core-img/chat.png" alt="">
-                                                <span>10</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Comment Area Start -->
-
-
-
                     </div>
                 </div>
 
                 <div class="col-12 col-lg-4">
                     <div class="blog-sidebar-area">
-
+                        <div class="section-heading">
+                            <h6>Related Posts</h6>
+                        </div>
                         <!-- Latest Posts Widget -->
                         <div class="latest-posts-widget mb-50">
 
@@ -191,55 +134,6 @@
                                         </a>
                                         <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                                                                      
-                        <!-- Latest Comments Widget -->
-                        <div class="latest-comments-widget">
-                            <h3>Latest Comments</h3>
-
-                            <!-- Single Comments -->
-                            <div class="single-comments d-flex">
-                                <div class="comments-thumbnail mr-15">
-                                    <img src="img/bg-img/29.jpg" alt="">
-                                </div>
-                                <div class="comments-text">
-                                    <a href="#">Jamie Smith <span>on</span> Facebook is offering facial recognition...</a>
-                                    <p>06:34 am, April 14, 2018</p>
-                                </div>
-                            </div>
-
-                            <!-- Single Comments -->
-                            <div class="single-comments d-flex">
-                                <div class="comments-thumbnail mr-15">
-                                    <img src="img/bg-img/30.jpg" alt="">
-                                </div>
-                                <div class="comments-text">
-                                    <a href="#">Jamie Smith <span>on</span> Facebook is offering facial recognition...</a>
-                                    <p>06:34 am, April 14, 2018</p>
-                                </div>
-                            </div>
-
-                            <!-- Single Comments -->
-                            <div class="single-comments d-flex">
-                                <div class="comments-thumbnail mr-15">
-                                    <img src="img/bg-img/31.jpg" alt="">
-                                </div>
-                                <div class="comments-text">
-                                    <a href="#">Jamie Smith <span>on</span> Facebook is offering facial recognition...</a>
-                                    <p>06:34 am, April 14, 2018</p>
-                                </div>
-                            </div>
-
-                            <!-- Single Comments -->
-                            <div class="single-comments d-flex">
-                                <div class="comments-thumbnail mr-15">
-                                    <img src="img/bg-img/32.jpg" alt="" />
-                                </div>
-                                <div class="comments-text">
-                                    <a href="#">Jamie Smith <span>on</span> Facebook is offering facial recognition...</a>
-                                    <p>06:34 am, April 14, 2018</p>
                                 </div>
                             </div>
                         </div>
