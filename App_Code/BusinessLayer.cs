@@ -373,6 +373,21 @@ namespace nsMyBlogs
 
         }
 
+        public DataTable GetRelatedPosts()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand("sp_GetRelatedPost", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
+
+        }
+
         public DataTable  GetMaxId()
         {
             if(con.State==ConnectionState.Closed)
