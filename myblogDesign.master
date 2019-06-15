@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->  
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Title -->
     <title>The News Paper - News &amp; Lifestyle Magazine Template</title>
 
@@ -37,8 +37,11 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="img/core-img/logo.png" alt=""></a>
+                                <a href="#">
+                                <img style="float: left" src="img/core-img/Globe-removebg-preview-removebg-preview.png" />
+                                <div class="col-md-12"><span style="font-size: x-large; font-style: italic; font-weight: 800" class="text-white">The News Digital</span></div>
+                                <div class="col-md-12"><span class="text-white-50">Around the Globe</span></div>
+                                    </a>
                             </div>
 
                             <!-- Login Search Area -->
@@ -46,15 +49,8 @@
                                 <!-- Login -->
                                 <div class="login d-flex">
                                     <a href="Admin/login.aspx">Admin Login</a>
-                                    <a href="#">Register</a>
-                                </div>
-                                <!-- Search Form -->
-                                <div class="search-form">
-                                    <form action="#" method="post">
-                                        <input type="search" name="search" class="form-control" placeholder="Search">
-                                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                    </form>
-                                </div>
+                                    
+                                </div>                               
                             </div>
                         </div>
                     </div>
@@ -71,8 +67,9 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html">
-                                <img src="img/core-img/logo.png" alt=""></a>
+                            
+                            <div class="col-12"><span style="font-size: x-large; font-style: italic; font-weight: 800" class="text-white">The News Digital</span></div>
+                            <div class="col-12"><span class="text-white-50">Around the Globe</span></div>
                         </div>
 
                         <!-- Navbar Toggler -->
@@ -152,7 +149,7 @@
     <!-- ##### Footer Add Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">        
+    <footer class="footer-area">
         <!-- Bottom Footer Area -->
         <div class="bottom-footer-area">
             <div class="container h-100">
@@ -170,7 +167,7 @@
             </div>
         </div>
     </footer>
-     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cfc5c6d4405d829"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cfc5c6d4405d829"></script>
     <!-- ##### Footer Area Start ##### -->
 
     <!-- ##### All Javascript Files ##### -->

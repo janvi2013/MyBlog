@@ -91,7 +91,7 @@ public partial class _Default : System.Web.UI.Page
 
         try
         {
-            DataTable dt = obj.GetRelatedPosts();
+            DataTable dt = obj.GetRelatedPosts(Convert.ToInt32(HttpContext.Current.Request.QueryString["Id"]));
             List<clsBlogSystemprp> ListToReturn = new List<clsBlogSystemprp>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {

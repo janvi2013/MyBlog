@@ -373,7 +373,7 @@ namespace nsMyBlogs
 
         }
 
-        public DataTable GetRelatedPosts()
+        public DataTable GetRelatedPosts(int id)
         {
             if (con.State == ConnectionState.Closed)
             {
@@ -381,6 +381,7 @@ namespace nsMyBlogs
             }
             SqlCommand cmd = new SqlCommand("sp_GetRelatedPost", con);
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@PostId", SqlDbType.Int).Value = Convert.ToInt32(id);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
