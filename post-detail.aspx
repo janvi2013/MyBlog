@@ -12,7 +12,7 @@
                     <div class="blog-posts-area">
 
                         <!-- Single Featured Post -->
-                    <div class="sharethis-inline-share-buttons"></div>
+                    
 						
                         <div class="single-blog-post featured-post single-post">
                             <div class="post-thumb">

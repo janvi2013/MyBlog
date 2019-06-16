@@ -196,7 +196,7 @@
                    .html(this.p_ThumbnailImage).attr('href', "post-detail.aspx?id=" + this.p_Id + ""))).append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>").attr('href', "post-detail.aspx?id=" + this.p_Id + "")).append($("<p/>").addClass("post-author").text('By ').append($("<a/>")
                    .attr('href', '#').text(this.p_Author + ',' + this.p_PostedDays))))));
 
-                    
+                    //.append("<div class='addthis_inline_share_toolbox' data-url='http://www.thenewsdigital.com/default.aspx/' data-title='" + this.p_Title + "' data-description='" + this.p_Description + "'  ></div>") 
                     
 
                 })
