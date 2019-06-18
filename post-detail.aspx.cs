@@ -10,6 +10,7 @@ using System.Configuration;
 using nsMyBlogs;
 using System.Web.Services;
 using System.Web.Script.Services;
+using System.Web.UI.HtmlControls;
 
 
 
@@ -37,11 +38,12 @@ public partial class _Default : System.Web.UI.Page
         DataTable dt = new DataTable();
         adp.Fill(dt);
 
-       // titleforshare.Text = dt.Rows[0]["Title"].ToString();
-        //MetaForShare.Content = dt.Rows[0]["Description"].ToString();
         
-        
+        HtmlGenericControl Title = ((HtmlGenericControl)this.Page.Master.FindControl("titleforshare"));
+        Title.InnerText = dt.Rows[0]["Title"].ToString();
 
+        HtmlGenericControl MetaDescription = ((HtmlGenericControl)this.Page.Master.FindControl("MetaForShare"));
+        MetaDescription.Attributes.Add("content",dt.Rows[0]["Description"].ToString());                        
     }
 
     [WebMethod]
