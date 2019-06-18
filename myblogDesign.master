@@ -7,13 +7,14 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="description"  id="MetaForDescription" runat="server" />
+    <meta name="description" id="MetaForDescription" runat="server" />
     <meta property="og:image" id="MetaForImage" runat="server" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Title -->
-    <title id="TitleForShare" runat="server"> The News Digital - Around The Globe </title>
+    <title id="TitleForShare" runat="server">The News Digital - Around The Globe </title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico" />
@@ -23,7 +24,7 @@
 
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
 
-    
+
 </head>
 
 <body>
@@ -39,10 +40,10 @@
                             <!-- Logo -->
                             <div class="logo">
                                 <a href="#">
-                                <img style="float: left" src="img/core-img/Globe-removebg-preview-removebg-preview.png" />
-                                <div class="col-md-12"><span style="font-size: x-large; font-style: italic; font-weight: 800" class="text-white">The News Digital</span></div>
-                                <div class="col-md-12"><span class="text-white-50">Around the Globe</span></div>
-                                    </a>
+                                   <%-- <img style="float: left" src="img/core-img/Globe-removebg-preview-removebg-preview.png" />--%>
+                                    <div class="col-md-12"><span style="font-size: x-large; font-style: italic; font-weight: 800" class="text-white">The News Digital</span></div>
+                                    <div class="col-md-12"><span class="text-white-50">Around the Globe</span></div>
+                                </a>
                             </div>
 
                             <!-- Login Search Area -->
@@ -50,8 +51,8 @@
                                 <!-- Login -->
                                 <div class="login d-flex">
                                     <a href="Admin/login.aspx">Admin Login</a>
-                                    
-                                </div>                               
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -68,7 +69,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            
+
                             <div class="col-12"><span style="font-size: x-large; font-style: italic; font-weight: 800" class="text-white">The News Digital</span></div>
                             <div class="col-12"><span class="text-white-50">Around the Globe</span></div>
                         </div>
