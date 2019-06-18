@@ -42,7 +42,7 @@ public partial class _Default : System.Web.UI.Page
         HtmlGenericControl Title = ((HtmlGenericControl)this.Page.Master.FindControl("titleforshare"));
         Title.InnerText = dt.Rows[0]["Title"].ToString();
 
-        HtmlGenericControl MetaDescription = ((HtmlGenericControl)this.Page.Master.FindControl("MetaForShare"));
+        HtmlGenericControl MetaDescription = ((HtmlGenericControl)this.Page.Master.FindControl("MetaForDescription"));
         MetaDescription.Attributes.Add("content",dt.Rows[0]["Description"].ToString());                        
     }
 
