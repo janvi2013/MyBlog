@@ -108,7 +108,7 @@
                     //.append("<div class='addthis_inline_share_toolbox' data-url='http://www.thenewsdigital.com/default.aspx/' data-title='" + this.p_Title + "' data-description='" + this.p_Description + "'  ></div>")
 
                 })
-
+                $("#FacebookShare").attr("addthis:media", window.location.protocol + "//" + window.location.hostname + $("#ThumbnailImage").find('img').attr('src'));
                 $("#MetaForImage").attr("content", window.location.protocol + "//" + window.location.hostname + $("#ThumbnailImage").find('img').attr('src'));
             },
             failure: function (response) {
