@@ -99,7 +99,7 @@
             success: function (response) {
                 $.each(response.d, function () {
                     $("#PostDetais").append($("<div/>").addClass("col-12 col-lg-12").addClass("col-12 col-lg-12").append("<br/>").append($("<div/>")
-                   .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>").attr('id',"ThumbnailImage")
+                   .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
                    .html($($.parseHTML(this.p_ThumbnailImage)).find('img').removeAttr('style')[0]).attr('href', '#')))
                    .append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>")
                    .addClass("post-title").html("<h6>" + this.p_Description + "</h6>")).append($("<div/>").addClass("post-meta").append($("<p/>")
@@ -107,9 +107,7 @@
 
                     //.append("<div class='addthis_inline_share_toolbox' data-url='http://www.thenewsdigital.com/default.aspx/' data-title='" + this.p_Title + "' data-description='" + this.p_Description + "'  ></div>")
 
-                })
-                $("#FacebookShare").attr("addthis:media", window.location.protocol + "//" + window.location.hostname + $("#ThumbnailImage").find('img').attr('src'));
-                $("#MetaForImage").attr("content", window.location.protocol + "//" + window.location.hostname + $("#ThumbnailImage").find('img').attr('src'));
+                })             
             },
             failure: function (response) {
                 alert(response.d);
