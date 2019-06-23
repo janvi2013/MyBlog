@@ -39,6 +39,8 @@ public partial class Admin_Default : System.Web.UI.Page
             objMyBlogprp.p_ModifiedDate = DateTime.Now;
             objMyBlogprp.p_Category = CategoryField.Items[CategoryField.SelectedIndex].Text;
             objMyBlog.saveBlogSystem(objMyBlogprp);
+
+            
         }
         else
         {

@@ -12,7 +12,11 @@
                     <!-- AddThis Button BEGIN -->
                     <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
                         <a id="FacebookShare" class="addthis_button_preferred_1"></a>
-                        <a id="TwitterShare" class="addthis_button_preferred_2"></a>                        
+                        <a id="TwitterShare" class="addthis_button_preferred_2"></a>   
+                        <a id="MessengerShare" class="addthis_button_preferred_3"></a>   
+                        <a id="WhatsupShare" class="addthis_button_preferred_4"></a>   
+                        <a id="MoreShare" class="addthis_button_compact"></a>     
+                        <a id="Counter" class="addthis_counter addthis_bubble_style"></a>                       
                     </div>
                     <div class="blog-posts-area">
 
@@ -22,7 +26,7 @@
                         <div class="single-blog-post featured-post single-post">
                             <div class="post-thumb">
 
-                                <div id="PostDetais" class="row"></div>
+                                <div id="PostDetais" class="row" style="text-align:justify"></div>
 
 
 
@@ -89,6 +93,11 @@
         $(document).ready(function () {
             $("#FacebookShare").attr("addthis:url", window.location.href);
             $("#TwitterShare").attr("addthis:url", window.location.href);
+            $("#MessengerShare").attr("addthis:url", window.location.href);
+            $("#WhatsupShare").attr("addthis:url", window.location.href);
+            $("#MoreShare").attr("addthis:url", window.location.href);
+            $("#Counter").attr("addthis:url", window.location.href);
+
             
         });
         $.ajax({
@@ -101,9 +110,9 @@
                     $("#PostDetais").append($("<div/>").addClass("col-12 col-lg-12").addClass("col-12 col-lg-12").append("<br/>").append($("<div/>")
                    .addClass("single-blog-post").addClass("style-3").append($("<div/>").addClass("post-thumb").append($("<a/>")
                    .html($($.parseHTML(this.p_ThumbnailImage)).find('img').removeAttr('style')[0]).attr('href', '#')))
-                   .append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>")
+                   .append($("<div/>").addClass("post-data").append($("<a/>").addClass("post-catagory").text(this.p_Category)).append($("<a/>").addClass("post-title").html("<h6>" + this.p_Title + "</h6>").append($("<a/>")
                    .addClass("post-title").html("<h6>" + this.p_Description + "</h6>")).append($("<div/>").addClass("post-meta").append($("<p/>")
-                   .addClass("post-author").text('By ').append($("<a/>").attr('href', '#').text(this.p_Author + ',' + this.p_PostedDays)))))));
+                   .addClass("post-author").text('By ').append($("<a/>").attr('href', '#').text(this.p_Author + ',' + this.p_PostedDays))))))));
 
                     //.append("<div class='addthis_inline_share_toolbox' data-url='http://www.thenewsdigital.com/default.aspx/' data-title='" + this.p_Title + "' data-description='" + this.p_Description + "'  ></div>")
 
