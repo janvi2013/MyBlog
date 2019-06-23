@@ -549,6 +549,10 @@ textarea:focus {
   z-index: 1; }
   .single-blog-post .post-thumb a {
     display: block; }
+  .style-3 .post-thumb img{
+      height:173px;
+      width:670px;
+  }
   .single-blog-post .post-data {
     padding: 30px 0; }
     .single-blog-post .post-data .post-catagory {
