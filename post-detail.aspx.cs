@@ -44,7 +44,7 @@ public partial class _Default : System.Web.UI.Page
         Title.InnerText = dt.Rows[0]["Title"].ToString();
 
         HtmlGenericControl MetaDescription = ((HtmlGenericControl)this.Page.Master.FindControl("MetaForDescription"));
-        MetaDescription.Attributes.Add("content",dt.Rows[0]["Description"].ToString());
+        MetaDescription.Attributes.Add("content", HttpUtility.HtmlDecode( dt.Rows[0]["DescText"].ToString()));
 
         HtmlGenericControl MetaImage = ((HtmlGenericControl)this.Page.Master.FindControl("MetaForImage"));
         string pattern = Regex.Match(dt.Rows[0]["Thumbnailimage"].ToString(), "<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase).Groups[1].Value;
