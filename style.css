@@ -549,7 +549,7 @@ textarea:focus {
   z-index: 1; }
   .single-blog-post .post-thumb a {
     display: block; }
-  .style-3 .post-thumb img{
+  .homeimage .post-thumb img{
       height:173px;
       width:670px;
   }
